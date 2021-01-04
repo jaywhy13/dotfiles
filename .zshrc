@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jmwright/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="amuse"
@@ -16,7 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # wave autocomplete setup
-WAVE_AC_ZSH_SETUP_PATH=/Users/jmwright/Library/Caches/wave/autocomplete/zsh_setup && test -f $WAVE_AC_ZSH_SETUP_PATH && source $WAVE_AC_ZSH_SETUP_PATH;
+WAVE_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/wave/autocomplete/zsh_setup" && test -f $WAVE_AC_ZSH_SETUP_PATH && source $WAVE_AC_ZSH_SETUP_PATH;
 
 # My aliases
 alias ws='wave app:start'
@@ -58,8 +58,8 @@ alias gri='git rebase -i master'
 alias lg=lazygit
 
 # Alias for activate environs
-source /Users/jmwright/.pyenv/versions/identity-3.6.5/bin/activate
-alias act='pyenv activate $(ls /Users/jmwright/.pyenv/versions | fzf)'
+source $HOME/.pyenv/versions/identity-3.6.5/bin/activate
+alias act='pyenv activate $(ls $HOME/.pyenv/versions | fzf)'
 
 # Alias for redshift via pgcli
 alias rs='pgcli -D redshift'
@@ -69,9 +69,9 @@ alias rs='pgcli -D redshift'
 
 
 # Created by `userpath` on 2020-06-19 21:12:52
-export PATH="$PATH:/Users/jmwright/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
-export PATH="$PATH:/Users/jmwright/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Setup z
 source /usr/local/etc/profile.d/z.sh
@@ -79,5 +79,7 @@ source /usr/local/etc/profile.d/z.sh
 # Configure colorize
 ZSH_COLORIZE_STYLE="monokai"
 
+# Install Git SCM Breeze
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 alias pr='gh pr checkout $(gh pr list | fzf | cut -f1)'
