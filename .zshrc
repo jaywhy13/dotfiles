@@ -57,7 +57,6 @@ alias gri='git rebase -i master'
 alias lg=lazygit
 
 # Alias for activate environs
-source $HOME/.pyenv/versions/identity-3.6.5/bin/activate
 alias act='pyenv activate $(ls $HOME/.pyenv/versions | fzf)'
 
 # Alias for redshift via pgcli
@@ -73,7 +72,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
 # Setup z
-source /usr/local/etc/profile.d/z.sh
+# source /usr/local/etc/profile.d/z.sh
 
 # Configure colorize
 ZSH_COLORIZE_STYLE="monokai"
