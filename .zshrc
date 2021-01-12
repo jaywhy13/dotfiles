@@ -10,12 +10,16 @@ plugins=(pip python brew osx emoji)
 source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+function load_nvm {
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
 
-# wave autocomplete setup
-WAVE_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/wave/autocomplete/zsh_setup" && test -f $WAVE_AC_ZSH_SETUP_PATH && source $WAVE_AC_ZSH_SETUP_PATH;
+function load_wave {
+    # wave autocomplete setup
+    WAVE_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/wave/autocomplete/zsh_setup" && test -f $WAVE_AC_ZSH_SETUP_PATH && source $WAVE_AC_ZSH_SETUP_PATH;
+}
 
 # My aliases
 alias ws='wave app:start'
@@ -42,7 +46,6 @@ function ce {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 
-
 # Git aliases
 alias glp="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --patch"
 # Update master
@@ -57,7 +60,6 @@ alias gri='git rebase -i master'
 alias lg=lazygit
 
 # Alias for activate environs
-source $HOME/.pyenv/versions/identity-3.6.5/bin/activate
 alias act='pyenv activate $(ls $HOME/.pyenv/versions | fzf)'
 
 # Alias for redshift via pgcli
@@ -71,9 +73,6 @@ alias rs='pgcli -D redshift'
 export PATH="$PATH:$HOME/.local/bin"
 
 export PATH="$PATH:$HOME/go/bin"
-
-# Setup z
-source /usr/local/etc/profile.d/z.sh
 
 # Configure colorize
 ZSH_COLORIZE_STYLE="monokai"
