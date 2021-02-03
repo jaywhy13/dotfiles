@@ -24,23 +24,10 @@ function load_wave {
 # Source the aliases we have
 source ./.aliases
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/mc mc
-
-
-# Add thesaurus to $PATH
-# export PATH=$HOME/code/command-line-thesaurus:$PATH
 
 # Created by `userpath` on 2020-06-19 21:12:52
 export PATH="$PATH:$HOME/.local/bin"
-
 export PATH="$PATH:$HOME/go/bin"
-
-# Setup z
-# source /usr/local/etc/profile.d/z.sh
-
-# Configure colorize
-ZSH_COLORIZE_STYLE="monokai"
 
 # Install Git SCM Breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
