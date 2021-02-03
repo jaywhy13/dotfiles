@@ -27,6 +27,7 @@ source ./.aliases
 
 # Created by `userpath` on 2020-06-19 21:12:52
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
 # Install Git SCM Breeze
