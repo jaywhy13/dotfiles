@@ -318,3 +318,6 @@ bind n next-window     # select next window
 tmux_conf_theme_status_left='  #S '
 tmux_conf_theme_status_left_fg='#eeeeee,#e4e4e4,#e4e4e4'  # black, white , white
 tmux_conf_theme_status_left_bg='#0f0f0f,#ff00af,#00afff'  # yellow, pink, white blue
+
+# set the default shell to zsh
+set-option -g default-shell /bin/zsh
