@@ -22,7 +22,7 @@ function load_wave {
 }
 
 # Source the aliases we have
-source ./.aliases
+source $HOME/.aliases
 
 
 # Created by `userpath` on 2020-06-19 21:12:52
