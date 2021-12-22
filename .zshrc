@@ -5,7 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="amuse"
-plugins=(pip python brew osx emoji)
+plugins=(pip python brew macos emoji)
 
 source $ZSH/oh-my-zsh.sh
 
