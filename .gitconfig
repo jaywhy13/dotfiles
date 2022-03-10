@@ -12,7 +12,15 @@
 	pu = push
 	p = pull
 	s = status
+    delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|main' | xargs git branch -d"
+
+[init]
+    defaultBranch = main
+
 
 [core]
 	excludesfile = /Users/jmwright/.gitignore_global
 	editor = nano
+
+[fetch]
+	prune = true
