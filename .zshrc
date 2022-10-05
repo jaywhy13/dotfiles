@@ -25,10 +25,10 @@ function load_wave {
 source $HOME/.aliases
 
 # Source any files starting with .extra-xxxx.sh
-for file in $(ls .extra-*.sh)
+for file in $(ls ~/.extra-*.sh)
 do
     echo "Sourcing extra file $file"
-    source $(pwd)/$file
+    source $file
 done
 
 # Created by `userpath` on 2020-06-19 21:12:52
