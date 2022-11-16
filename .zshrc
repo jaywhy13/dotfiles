@@ -21,6 +21,14 @@ function load_wave {
     WAVE_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/wave/autocomplete/zsh_setup" && test -f $WAVE_AC_ZSH_SETUP_PATH && source $WAVE_AC_ZSH_SETUP_PATH;
 }
 
+# Github CLI functions
+updatepr (){
+    # Update the title with commit
+    git log -1 --pretty=format:%s | xargs -I{} gh pr edit --title "{}" && \
+    # Update the body with commit
+    git log -1 | gh pr edit --body-file -
+}
+
 # Source the aliases we have
 source $HOME/.aliases
 
