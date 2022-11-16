@@ -44,3 +44,10 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/go/bin"
 
+# This fixes a problem with pgcli accessing RedShift
+# Pgcli is using pyscopg3 under the hood which errors out when
+# it tries to connect to RedShift with the error: psycopg.NotSupportedError: codec not available in Python: b'UNICODE'
+# I don't fully understand why, but setting the client encoding for PG resolves
+# the issue
+# See https://github.com/psycopg/psycopg/issues/122
+export PGCLIENTENCODING=utf-8
