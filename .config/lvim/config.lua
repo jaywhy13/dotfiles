@@ -40,6 +40,13 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
+lvim.builtin.which_key.mappings["ai"] = {
+  name = "AI",
+  e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" }
+  c = { ":ChatGPT<cr>", "ChatGPT" }
+}
+
+--
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
@@ -165,6 +172,22 @@ lvim.plugins = {
   { 'mg979/vim-visual-multi' },
   -- Better symbol navigation
   { 'simrat39/symbols-outline.nvim' },
+  -- ChatGPT
+  {
+    'jackMort/ChatGPT.nvim',
+    config = function()
+      require("chatgpt").setup({
+        openai_params = {
+          model = "gpt-3.5-turbo"
+        }
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 }
 
 
