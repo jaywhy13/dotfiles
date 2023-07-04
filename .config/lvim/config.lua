@@ -21,7 +21,7 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
-
+-
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")
@@ -38,6 +38,40 @@ lvim.builtin.telescope.defaults.mappings = {
     ["<C-j>"] = actions.move_selection_next,
     ["<C-k>"] = actions.move_selection_previous,
   },
+}
+
+-- Put buffer search under s (sb)
+-- First I have to remove the current mapping
+lvim.builtin.which_key.mappings['sb'] = {}
+lvim.builtin.which_key.mappings["sb"] = {
+  "<cmd>Telescope buffers<cr>", "Buffers"
+}
+
+
+
+-- Add some options to the LSP dialog
+lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
+lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
+lvim.builtin.which_key.mappings["lg"] = {
+  name = "Goto",
+  d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
+  D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto Declaration" },
+  r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references" },
+  I = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto Implementation" },
+  l = {
+    function()
+      local config = lvim.lsp.diagnostics.float
+      config.scope = "line"
+      vim.diagnostic.open_float(0, config)
+    end,
+    "Show line diagnostics",
+  },
+}
+
+-- Symbol outline
+lvim.builtin.which_key.mappings["ls"] = {}
+lvim.builtin.which_key.mappings["ls"] = {
+  ":SymbolsOutline<cr>", "Symbols Outline"
 }
 
 lvim.builtin.which_key.mappings["ai"] = {
@@ -265,40 +299,9 @@ end
 
 vim.api.nvim_command("command! FindReplace lua _G.find_replace()")
 
--- Put buffer search under s (sb)
--- First I have to remove the current mapping
-lvim.builtin.which_key.mappings['sb'] = {}
-lvim.builtin.which_key.mappings["sb"] = {
-  "<cmd>Telescope buffers<cr>", "Buffers"
-}
-
-
-
--- Add some options to the LSP dialog
-lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
-lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
-lvim.builtin.which_key.mappings["lg"] = {
-  name = "Goto",
-  d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
-  D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto Declaration" },
-  r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references" },
-  I = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto Implementation" },
-  l = {
-    function()
-      local config = lvim.lsp.diagnostics.float
-      config.scope = "line"
-      vim.diagnostic.open_float(0, config)
-    end,
-    "Show line diagnostics",
-  },
-}
 
 -- Setup for symbols outline
 require("symbols-outline").setup({
   width = 25,
   autofold_depth = 2
 })
-lvim.builtin.which_key.mappings["ls"] = {}
-lvim.builtin.which_key.mappings["ls"] = {
-  ":SymbolsOutline<cr>", "Symbols Outline"
-}
