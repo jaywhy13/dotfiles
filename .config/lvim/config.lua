@@ -169,6 +169,16 @@ lvim.plugins = {
   { "github/copilot.vim" },
   -- Interactive REPL over Vim,
   { 'Vigemus/iron.nvim' },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
 }
 
 
@@ -309,6 +319,7 @@ lvim.builtin.which_key.mappings['sb'] = {}
 lvim.builtin.which_key.mappings["sb"] = {
   "<cmd>Telescope buffers<cr>", "Buffers"
 }
+
 
 -- Add some options to the LSP dialog
 lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
