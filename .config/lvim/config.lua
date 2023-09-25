@@ -40,11 +40,6 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
---
--- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
-
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -363,3 +358,7 @@ lvim.builtin.which_key.vmappings["ai"] = {
   c = { ":ChatGPT<cr>", "ChatGPT" },
   s = { "<cmd>lua copilot#Accept()", "Copilot Suggest" },
 }
+--
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
