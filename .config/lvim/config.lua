@@ -40,14 +40,6 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
--- Put buffer search under s (sb)
--- First I have to remove the current mapping
-lvim.builtin.which_key.mappings['sb'] = {}
-lvim.builtin.which_key.mappings["sb"] = {
-  "<cmd>Telescope buffers<cr>", "Buffers"
-}
-
-
 
 -- Add some options to the LSP dialog
 lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
@@ -305,3 +297,12 @@ require("symbols-outline").setup({
   width = 25,
   autofold_depth = 2
 })
+
+
+-- Put buffer search under s (sb)
+-- First I have to remove the current mapping
+lvim.builtin.which_key.mappings['sb'] = {}
+lvim.builtin.which_key.mappings["sb"] = {
+  "<cmd>Telescope buffers<cr>", "Buffers"
+}
+
