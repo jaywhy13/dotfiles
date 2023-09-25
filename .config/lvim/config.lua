@@ -40,32 +40,6 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
-
--- Add some options to the LSP dialog
-lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
-lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
-lvim.builtin.which_key.mappings["lg"] = {
-  name = "Goto",
-  d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
-  D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto Declaration" },
-  r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references" },
-  I = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto Implementation" },
-  l = {
-    function()
-      local config = lvim.lsp.diagnostics.float
-      config.scope = "line"
-      vim.diagnostic.open_float(0, config)
-    end,
-    "Show line diagnostics",
-  },
-}
-
--- Symbol outline
-lvim.builtin.which_key.mappings["ls"] = {}
-lvim.builtin.which_key.mappings["ls"] = {
-  ":SymbolsOutline<cr>", "Symbols Outline"
-}
-
 lvim.builtin.which_key.mappings["ai"] = {
   name = "AI",
   e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" }
@@ -304,5 +278,31 @@ require("symbols-outline").setup({
 lvim.builtin.which_key.mappings['sb'] = {}
 lvim.builtin.which_key.mappings["sb"] = {
   "<cmd>Telescope buffers<cr>", "Buffers"
+}
+
+-- Add some options to the LSP dialog
+lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
+lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
+lvim.builtin.which_key.mappings["ll"] = {
+  function()
+    local config = lvim.lsp.diagnostics.float
+    config.scope = "line"
+    vim.diagnostic.open_float(0, config)
+  end,
+  "Show line diagnostics",
+}
+
+lvim.builtin.which_key.mappings["lg"] = {
+  name = "Goto",
+  d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
+  D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto Declaration" },
+  r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto references" },
+  I = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto Implementation" },
+}
+
+-- Symbol outline
+lvim.builtin.which_key.mappings["ls"] = {}
+lvim.builtin.which_key.mappings["ls"] = {
+  ":SymbolsOutline<cr>", "Symbols Outline"
 }
 
