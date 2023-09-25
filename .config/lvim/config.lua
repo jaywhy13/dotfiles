@@ -361,4 +361,5 @@ lvim.builtin.which_key.vmappings["ai"] = {
   name = "AI",
   e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" },
   c = { ":ChatGPT<cr>", "ChatGPT" },
+  s = { "<cmd>lua copilot#Accept()", "Copilot Suggest" },
 }
