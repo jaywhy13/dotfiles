@@ -376,3 +376,40 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
+local vim = vim
+
+
+function _G.get_python_path_from_poetry()
+  -- Get the current working directory where lvim/nvim was invoked
+  local current_dir = vim.fn.getcwd()
+
+  -- Check if pyproject.toml exists in the directory
+  local project_file = current_dir .. '/pyproject.toml'
+  local f = io.open(project_file, 'r')
+
+  if f ~= nil then
+    io.close(f)
+
+    -- Call poetry env info -p to get the virtual env directory
+    local handle = io.popen('poetry env info -p')
+    local result = handle:read("*a")
+    handle:close()
+
+    -- Append /bin/python to the directory and return
+    return result:gsub('\n$', '') .. '/bin/python'
+  end
+
+  return nil
+end
+
+-- Do some configuration for Pyright
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {
+  settings = {
+    python = {
+      -- Get the configuration from Poetry or fallback to Python
+      pythonPath = get_python_path_from_poetry() or "python"
+    }
+  }
+}
+
