@@ -167,6 +167,8 @@ lvim.plugins = {
     }
   },
   { "github/copilot.vim" },
+  -- Interactive REPL over Vim,
+  { 'Vigemus/iron.nvim' },
 }
 
 
