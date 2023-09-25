@@ -40,12 +40,6 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
-lvim.builtin.which_key.mappings["ai"] = {
-  name = "AI",
-  e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" }
-  c = { ":ChatGPT<cr>", "ChatGPT" }
-}
-
 --
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
@@ -357,3 +351,14 @@ lvim.builtin.which_key.mappings["ls"] = {
   ":SymbolsOutline<cr>", "Symbols Outline"
 }
 
+lvim.builtin.which_key.mappings["ai"] = {
+  name = "AI",
+  e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" },
+  c = { ":ChatGPT<cr>", "ChatGPT" }
+}
+
+lvim.builtin.which_key.vmappings["ai"] = {
+  name = "AI",
+  e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" },
+  c = { ":ChatGPT<cr>", "ChatGPT" },
+}
