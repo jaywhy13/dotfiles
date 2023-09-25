@@ -188,7 +188,8 @@ lvim.plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
-  }
+  },
+  { "github/copilot.vim" },
 }
 
 
