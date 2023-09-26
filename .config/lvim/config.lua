@@ -350,7 +350,14 @@ lvim.builtin.which_key.mappings["ls"] = {
 lvim.builtin.which_key.mappings["ai"] = {
   name = "AI",
   e = { ":ChatGPTEditWithInstructions<cr>", "ChatGPT Edit with Instructions" },
-  c = { ":ChatGPT<cr>", "ChatGPT" }
+  c = { ":ChatGPT<cr>", "ChatGPT" },
+  d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+  t = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+  o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+  s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+  f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+  x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+  l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } }
 }
 
 lvim.builtin.which_key.vmappings["ai"] = {
