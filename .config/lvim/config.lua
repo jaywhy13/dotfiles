@@ -321,6 +321,10 @@ lvim.builtin.which_key.mappings["sb"] = {
   "<cmd>Telescope buffers<cr>", "Buffers"
 }
 
+lvim.builtin.which_key.mappings["sq"] = {
+  "<cmd>Telescope quickfix<cr>", "Quickfix"
+}
+
 
 -- Add some options to the LSP dialog
 lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
