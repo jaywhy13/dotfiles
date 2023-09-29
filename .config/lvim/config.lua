@@ -427,3 +427,18 @@ lspconfig.pyright.setup {
     }
   }
 }
+
+-- Use zf to set the fold level
+-- We do this by defining a global function first
+-- Then, we set the keymap and let it call our
+-- Lua function
+_G.set_fold_level = function(level)
+  vim.cmd("set foldlevel=" .. level)
+end
+
+
+for i = 0, 9 do
+  vim.api.nvim_set_keymap('n', tostring(i) .. 'zf',
+    string.format(":lua set_fold_level(%d)<CR>", i),
+    { noremap = true, silent = true })
+end
