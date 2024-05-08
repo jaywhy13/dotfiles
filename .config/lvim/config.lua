@@ -195,10 +195,14 @@ lvim.plugins = {
       "nvim-lua/plenary.nvim",
     }
   },
+  -- Better signature completion
+  {
+    'ray-x/lsp_signature.nvim'
+  },
 
 }
 
-
+require "lsp_signature".setup({})
 
 -- Configure code folding (nvim-ufo) -- it uses the language server to get information
 -- about folding
