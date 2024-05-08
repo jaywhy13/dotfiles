@@ -463,6 +463,10 @@ lvim.builtin.lualine.sections.lualine_z = {
   "os.date('%H:%M')"
 }
 
+-- Configuring vim-gh-line so that it copies the URL instead
+vim.g.gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '
+
+
 -- Configuration for Terraform
 --
 -- I had to do :TSInstall hcl to get syntax highlighting working
@@ -473,4 +477,3 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.lsp.buf.format()
   end,
 })
-
