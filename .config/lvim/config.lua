@@ -31,7 +31,9 @@ lvim.builtin.telescope.defaults.mappings = {
     ["<C-j>"] = actions.move_selection_next,
     ["<C-k>"] = actions.move_selection_previous,
     ["<C-n>"] = actions.cycle_history_next,
-    ["<C-p>"] = actions.cycle_history_prev,
+    ["<C-p>"] = actions.cycle_history_prev, -- Go back to normal mode
+    -- This is done by simulating pressing Esc
+    ["<C-l>"] = function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, true, true), 'n', true) end,
   },
   -- for normal mode
   n = {
