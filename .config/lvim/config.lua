@@ -199,6 +199,9 @@ lvim.plugins = {
   {
     'ray-x/lsp_signature.nvim'
   },
+  -- Go
+  { 'ray-x/go.nvim' },
+  { 'ray-x/guihua.lua' }
 
 }
 
