@@ -319,6 +319,12 @@ lvim.builtin.which_key.mappings["-"] = {
 -- Add some options to the LSP dialog
 lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
 lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
+
+lvim.builtin.which_key.mappings["ld"] = {} -- Remove the mapping
+lvim.builtin.which_key.mappings["ld"] = {
+  "<cmd>Trouble document_diagnostics<cr>", "Diagnostics"
+}
+
 lvim.builtin.which_key.mappings["ll"] = {
   function()
     local config = lvim.lsp.diagnostics.float
