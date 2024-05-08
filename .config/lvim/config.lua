@@ -130,7 +130,8 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "eslint", filetypes = { "typescript", "typescriptreact" } },
-  -- { command = "flake8", filetypes = { "python" } },
+  { command = "mypy",   filetypes = { "python" } },
+  { command = "pylint", filetypes = { "python" } },
   -- {
   --   -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
   --   command = "shellcheck",
