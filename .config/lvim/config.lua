@@ -189,6 +189,12 @@ lvim.plugins = {
       require("spectre").setup()
     end,
   },
+  {
+    'wyattjsmith1/weather.nvim',
+    requires = {
+      "nvim-lua/plenary.nvim",
+    }
+  },
 
 }
 
@@ -403,6 +409,31 @@ for i = 0, 9 do
     string.format(":lua set_fold_level(%d)<CR>", i),
     { noremap = true, silent = true })
 end
+-- Weather
+require 'weather'.setup {
+  openweathermap = {
+    app_id = {
+      value = "d95b6adc9c138b53c94c1dee01cbffe3"
+    }
+  }
+}
+-- Adding the weather to the status line
+-- I had to define my own formatter because the one in the docs
+-- wasn't working.
+local lualine_weather = require('weather.lualine')
+
+local function celcius_formatter(data)
+  return data.condition_icon .. "  " .. math.floor(data.temp.c) .. "°C"
+end
+
+-- Add some additions to the status line at the very end
+lvim.builtin.lualine.sections.lualine_z = {
+  -- Weather
+  lualine_weather.custom(celcius_formatter, { pending = '羽', error = '' }),
+  -- Current time (we can add Lua expressions and lualine will evaluate them)
+  "os.date('%H:%M')"
+}
+
 -- Configuration for Terraform
 --
 -- I had to do :TSInstall hcl to get syntax highlighting working
