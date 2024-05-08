@@ -307,6 +307,15 @@ lvim.builtin.which_key.mappings["sj"] = {
   "<cmd>Telescope jumplist<cr>", "Jumplist"
 }
 
+-- Splitting
+lvim.builtin.which_key.mappings["|"] = {
+  "<cmd>vsplit()<cr>", "Vertical Split"
+}
+
+lvim.builtin.which_key.mappings["-"] = {
+  "<cmd>hsplit()<cr>", "Horizontal Split"
+}
+
 -- Add some options to the LSP dialog
 lvim.builtin.which_key.mappings["l<tab>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "show signature help" }
 lvim.builtin.which_key.mappings["lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "show hover information" }
