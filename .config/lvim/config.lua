@@ -438,6 +438,8 @@ for i = 0, 9 do
     string.format(":lua set_fold_level(%d)<CR>", i),
     { noremap = true, silent = true })
 end
+-- Use C-l as esc
+lvim.keys.insert_mode["<C-l>"] = "<Esc>"
 -- Weather
 require 'weather'.setup {
   openweathermap = {
