@@ -325,6 +325,7 @@ lvim.builtin.which_key.mappings["ld"] = {
   "<cmd>Trouble document_diagnostics<cr>", "Diagnostics"
 }
 
+lvim.builtin.which_key.mappings["ll"] = {} -- Remove the mapping
 lvim.builtin.which_key.mappings["ll"] = {
   function()
     local config = lvim.lsp.diagnostics.float
