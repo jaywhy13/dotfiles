@@ -1,15 +1,11 @@
 --[[
 lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable ]]
+Linters should be filled in as strings with either
+a global executable or a path to an executable ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "lunar"
--- to disable icons and use a minimalist setup, uncomment the following lvim.use_icons = false
+lvim.colorscheme = "lunar" -- to disable icons and use a minimalist setup, uncomment the following lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -104,7 +100,7 @@ lvim.builtin.treesitter.highlight.enable = true
 --   --Enable completion triggered by <c-x><c-o>
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
-
+--
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -168,8 +164,6 @@ lvim.plugins = {
     }
   },
   { "github/copilot.vim" },
-  -- Interactive REPL over Vim,
-  { 'Vigemus/iron.nvim' },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -223,55 +217,6 @@ require('ufo').setup()
 --   end,
 -- })
 
--- Configuring Iron REPL
-local iron = require("iron.core")
-
-iron.setup {
-  config = {
-    -- Whether a repl should be discarded or not
-    scratch_repl = true,
-    -- Your repl definitions come here
-    repl_definition = {
-      sh = {
-        -- Can be a table or a function that
-        -- returns a table (see below)
-        command = { "zsh" }
-      }
-    },
-    -- How the repl window will be displayed
-    -- See below for more information
-    repl_open_cmd = "vertical botright 80 split"
-  },
-  -- Iron doesn't set keymaps by default anymore.
-  -- You can set them here or manually add keymaps to the functions in iron.core
-  keymaps = {
-    send_motion = "<space>Rc",
-    visual_send = "<space>Rc",
-    send_file = "<space>Rf",
-    send_line = "<space>Rl",
-    send_until_cursor = "<space>Ru",
-    send_mark = "<space>Rm",
-    mark_motion = "<space>mc",
-    mark_visual = "<space>mc",
-    remove_mark = "<space>md",
-    cr = "<space>R<cr>",
-    interrupt = "<space>R<space>",
-    exit = "<space>Rq",
-    clear = "<space>cl",
-  },
-  -- If the highlight is on, you can change how it looks
-  -- For the available options, check nvim_set_hl
-  highlight = {
-    italic = true
-  },
-  ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
-}
-
--- iron also has a list of commands, see :h iron-commands for all available commands
-vim.keymap.set('n', '<space>rs', '<cmd>IronRepl<cr>')
-vim.keymap.set('n', '<space>rr', '<cmd>IronRestart<cr>')
-vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
 
 -- Adding some of my customizations here
 lvim.keys.normal_mode["<esc>"] = false
