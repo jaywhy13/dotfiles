@@ -182,6 +182,13 @@ lvim.plugins = {
       -- refer to the configuration section below
     },
   },
+  {
+    "windwp/nvim-spectre",
+    event = "BufRead",
+    config = function()
+      require("spectre").setup()
+    end,
+  },
 
 }
 
