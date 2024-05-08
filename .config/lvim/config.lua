@@ -292,6 +292,10 @@ lvim.builtin.which_key.mappings["sb"] = {
   "<cmd>Telescope buffers<cr>", "Buffers"
 }
 
+lvim.builtin.which_key.mappings["ss"] = {
+  "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer"
+}
+
 lvim.builtin.which_key.mappings["sq"] = {
   "<cmd>Telescope quickfix<cr>", "Quickfix"
 }
