@@ -411,10 +411,13 @@ function _G.get_python_path_from_poetry()
 end
 
 -- Do some configuration for Pyright
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {
   settings = {
     python = {
+      -- I'm using pyproject to configure Pyright now,
+      -- so I'm opting not to use this function below
       -- Get the configuration from Poetry or fallback to Python
       pythonPath = get_python_path_from_poetry() or "python"
     }
