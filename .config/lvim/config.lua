@@ -61,6 +61,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "tsx",
   "css",
   "yaml",
+  "hcl",
+  "graphql"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -393,3 +395,14 @@ for i = 0, 9 do
     string.format(":lua set_fold_level(%d)<CR>", i),
     { noremap = true, silent = true })
 end
+-- Configuration for Terraform
+--
+-- I had to do :TSInstall hcl to get syntax highlighting working
+require 'lspconfig'.terraformls.setup {}
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
