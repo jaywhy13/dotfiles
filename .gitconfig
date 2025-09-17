@@ -3,9 +3,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	name = Jean-Mark Wright
-	email = jeanmark.wright@gmail.com
+
 [alias]
 	co = checkout
 	cob = checkout -b
@@ -20,7 +18,16 @@
 
 [core]
 	excludesfile = /Users/jmwright/.gitignore_global
-	editor = nano
+	editor = nvim
 
 [fetch]
 	prune = true
+[rebase]
+	updateRefs = true
+
+[includeIf "gitdir:/Users/jmwright/.config/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/wave/src/"]
+  path = ~/.gitconfig-work
+[includeIf "gitdir:~/code/"]
+  path = ~/.gitconfig-personal
